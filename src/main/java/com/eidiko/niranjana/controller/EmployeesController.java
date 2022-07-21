@@ -24,7 +24,7 @@ public class EmployeesController {
 	}
 	
 	@GetMapping("/fetchEmployeesNameByNo")
-	public String fetchEmployeeDataByEmpNo(@RequestBody Employees employeeId) {
+	public Employees fetchEmployeeDataByEmpNo(@RequestBody Employees employeeId) {
 		return empService.fetchEmployeesNameByNo(employeeId.getEmployee_id());
 	}
 	

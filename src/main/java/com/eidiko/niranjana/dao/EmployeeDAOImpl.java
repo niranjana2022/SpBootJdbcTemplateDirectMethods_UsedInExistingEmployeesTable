@@ -4,8 +4,11 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
+
+import com.eidiko.niranjana.entity.Employees;
 @Repository
 public class EmployeeDAOImpl implements EmployeeDAO {
 	
@@ -19,9 +22,9 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 	}
 
 	@Override
-	public String getEmployeesNameByNo(int no) {
+	public Employees getEmployeesNameByNo(int no) {
 		String retrieveSingleData = "select first_name,last_name from EMPLOYEES where employee_id=?";
-		 return jdbcTemplate.queryForObject(retrieveSingleData, String.class,no);
+		 return jdbcTemplate.queryForObject(retrieveSingleData, BeanPropertyRowMapper.newInstance(Employees.class),no);
 	}
 
 	@Override

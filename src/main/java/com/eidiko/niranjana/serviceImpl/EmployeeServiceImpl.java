@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.eidiko.niranjana.dao.EmployeeDAO;
+import com.eidiko.niranjana.entity.Employees;
 import com.eidiko.niranjana.service.EmployeeService;
 @Service
 public class EmployeeServiceImpl implements EmployeeService{
@@ -18,7 +19,7 @@ public class EmployeeServiceImpl implements EmployeeService{
 		return empDao.countEmplyeesDetails();
 	}
 	@Override
-	public String fetchEmployeesNameByNo(int no) {
+	public Employees fetchEmployeesNameByNo(int no) {
 		return empDao.getEmployeesNameByNo(no);
 	}
 	@Override
